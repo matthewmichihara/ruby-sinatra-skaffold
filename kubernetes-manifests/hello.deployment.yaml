@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ruby-hello-world
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ruby-hello-world
+  template:
+    metadata:
+      labels:
+        app: ruby-hello-world
+    spec:
+      containers:
+      - name: server
+        image: ruby-server
+        ports:
+        - containerPort: 4567
+        env:
+        - name: PORT
+          value: "4567"

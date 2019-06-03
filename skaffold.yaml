@@ -1,0 +1,10 @@
+apiVersion: skaffold/v1beta11
+kind: Config
+build:
+  artifacts:
+  - image: ruby-server
+deploy:
+  kubectl:
+    manifests:
+    - kubernetes-manifests/hello.deployment.yaml
+    - kubernetes-manifests/hello.service.yaml
